@@ -22,7 +22,7 @@ function App() {
       rating: {
         average: 4.0,
       },
-    })
+    }).map((val, index) => ({...val, wine: val.wine + index}))
   );
   const [category, setCategory] = useState(WINE_CATEGORIES[0]);
   const [isLoading, setIsLoading] = useState(false);
