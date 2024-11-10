@@ -13,20 +13,21 @@ const WINE_CATEGORIES = [
 ];
 
 function App() {
-  const [wines, setWines] = useState(
-    new Array(10).fill({
-      wine: 'Image wine',
-      winery: 'Some winery',
-      image:
-        'https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png',
-      rating: {
-        average: 4.0,
-      },
-    }).map((val, index) => ({...val, wine: val.wine + index}))
-  );
+  const [wines, setWines] = useState([]);
   const [category, setCategory] = useState(WINE_CATEGORIES[0]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
+
+
+  useEffect(() => {
+    const requestWine = async () => {
+      const response = await fetch('/wines/' + category);
+      const result = await response.json();
+      setWines(result);
+    }
+
+    requestWine();
+  }, [category])
 
   return (
     <>
