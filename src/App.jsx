@@ -3,7 +3,7 @@ import './App.css';
 import { clsx } from 'clsx';
 import WineList from './component/WineList';
 
-const WINE_CATEGORIES = [
+export const WINE_CATEGORIES = [
   'reds',
   'whites',
   'sparkling',
@@ -21,9 +21,17 @@ function App() {
 
   useEffect(() => {
     const requestWine = async () => {
-      const response = await fetch('/wines/' + category);
-      const result = await response.json();
-      setWines(result);
+      setIsLoading(true);
+      try {
+        const response = await fetch('/wines/' + category + 'd');
+        const result = await response.json();
+        setWines(result);
+      }catch(error) {
+        setError(true);
+      }finally {
+        setIsLoading(false);
+      }
+      
     }
 
     requestWine();
