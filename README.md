@@ -41,7 +41,7 @@
 
 # 브랜치별 구현 상태
 <details>
-<summary>git checkout 0_start</summary>
+<summary>git switch 0_start</summary>
 
 ### 개발 셋팅
 - [ ] MSW 라이브러리 설치
@@ -58,7 +58,7 @@
 - [ ] 기타 에러는 알 수 없는 에러 발생 UI 노출
 </details>
 <details>
-<summary>git checkout 1_msw_setting</summary>
+<summary>git switch 1_msw_setting</summary>
 
 ### 개발 셋팅
 - [x] MSW 라이브러리 설치
@@ -75,7 +75,7 @@
 - [ ] 기타 에러는 알 수 없는 에러 발생 UI 노출
 </details>
 <details>
-<summary>git checkout 2_loading_error</summary>
+<summary>git switch 2_loading_error</summary>
 
 ### 개발 셋팅
 - [x] MSW 라이브러리 설치
@@ -93,7 +93,7 @@
 </details>
 
 <details>
-<summary>git checkout 3_advanced</summary>
+<summary>git switch 3_advanced</summary>
 
 ### 개발 셋팅
 - [x] MSW 라이브러리 설치
