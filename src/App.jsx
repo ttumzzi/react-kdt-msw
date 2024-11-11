@@ -23,11 +23,23 @@ function App() {
     const requestWine = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch('/wines/' + category + 'd');
+        const response = await fetch('/wines/' + category );
+        if(!response.ok) throw response;
+
         const result = await response.json();
         setWines(result);
       }catch(error) {
         setError(true);
+
+        if(error.status === 403) {
+          alert("로그인을 해주세요.");
+          return;
+        }
+
+        if(error.status === 500) {
+          alert("서버 에러가 발생했습니다.")
+          return;
+        }
       }finally {
         setIsLoading(false);
       }
@@ -35,6 +47,7 @@ function App() {
     }
 
     requestWine();
+
   }, [category])
 
   return (

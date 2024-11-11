@@ -1,8 +1,8 @@
 import { http, HttpResponse, delay } from 'msw'
 import { WINE_CATEGORIES } from '../App';
- 
-export const handlers = [
-  http.get('/wines/:category', async ({params}) => {
+
+export const winesHandler = {
+  default: http.get('/wines/:category', async ({params}) => {
     const {category} = params;
 
     if(!WINE_CATEGORIES.includes(category)) {
@@ -21,4 +21,12 @@ export const handlers = [
         },
       }).map((val, index) => ({...val, wine: val.wine + index})))
   }),
-]
+  fail_403: http.get('/wines/:category', async () => {
+    return new HttpResponse(null, {status: 403})
+  }),
+  fail_500: http.get('/wines/:category', async () => {
+    return new HttpResponse(null, {status: 500})
+  }),
+}
+ 
+export const handlers = [winesHandler.default]
