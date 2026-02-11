@@ -15,7 +15,7 @@ export const winesHandler = {
         wine: category + ' wine',
         winery: category + ' winery',
         image:
-          'https://www.alkovintages.com/wp-content/uploads/2019/09/dry-red.png',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQauZtkgM-qHabDT4LGuEX76FctGL0hi78Kog&s',
         rating: {
           average: 4.0,
         },
